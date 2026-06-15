@@ -1,0 +1,182 @@
+/* ══════════════════════════════════════════════════════
+   Acceuil.css — Styles spécifiques à la page d'accueil
+   Requires: base.css chargé avant
+   ══════════════════════════════════════════════════════ */
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 10rem 4% 5rem;
+  position: relative; text-align: center; overflow: hidden;
+}
+
+.hero-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 65% at 50% 38%, #000 20%, transparent 100%);
+}
+
+.hero-glow {
+  position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
+  width: 900px; height: 600px; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 40%, rgba(61,127,255,.10) 0%, transparent 68%);
+}
+
+.hero-inner { position: relative; z-index: 1; max-width: 760px; }
+
+.hero-pill {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .4rem .95rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 50px; font-size: .78rem; color: var(--sub);
+  margin-bottom: 2.4rem;
+}
+.hero-pill .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--blue); box-shadow: 0 0 8px var(--blue);
+  animation: blink 2.2s ease infinite;
+}
+
+.hero h1 {
+  font-size: clamp(3.2rem, 9.5vw, 6.5rem);
+  font-weight: 800; line-height: 1.0; letter-spacing: -3.5px;
+  margin-bottom: 1.6rem;
+}
+.hero h1 .accent { color: var(--blue); }
+
+.hero-desc {
+  font-size: 1.05rem; color: var(--sub); line-height: 1.75;
+  max-width: 420px; margin: 0 auto 2.8rem;
+}
+
+.hero-actions { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
+
+.scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: .5rem;
+  color: var(--muted); font-size: .72rem; letter-spacing: 2px; text-transform: uppercase;
+}
+.scroll-hint::after {
+  content: '';
+  width: 1px; height: 40px;
+  background: linear-gradient(180deg, var(--muted), transparent);
+}
+
+/* ── SERVICES ── */
+.services-wrap { background: var(--bg); }
+
+.svc-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+  background: var(--border); gap: 1px;
+}
+
+.svc-card {
+  background: var(--surface); padding: 2.8rem 2.2rem;
+  position: relative; overflow: hidden; cursor: default;
+  transition: background .3s;
+}
+.svc-card:hover { background: var(--surface2); }
+.svc-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--blue); transform: scaleX(0); transform-origin: left;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+.svc-card:hover::before { transform: scaleX(1); }
+
+.svc-icon { font-size: 1.9rem; margin-bottom: 1.4rem; display: block; }
+.svc-card h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -.2px; margin-bottom: .6rem; }
+.svc-card p { font-size: .88rem; color: var(--sub); line-height: 1.65; }
+
+.svc-link {
+  display: inline-flex; align-items: center; gap: .3rem;
+  margin-top: 1.2rem; font-size: .82rem; color: var(--blue);
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  opacity: 0; transform: translateX(-6px); transition: all .3s;
+  text-decoration: none;
+}
+.svc-card:hover .svc-link { opacity: 1; transform: translateX(0); }
+
+/* ── ÉTUDES DE CAS ── */
+.cases-wrap {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.cases-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.cases-grid .case-featured { grid-column: span 2; }
+
+.case-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: border-color .3s, transform .3s; cursor: default;
+}
+.case-card:hover { border-color: rgba(61,127,255,.4); transform: translateY(-4px); }
+
+.case-img {
+  width: 100%; aspect-ratio: 16/9;
+  object-fit: cover; display: block;
+  background: var(--surface2);
+}
+
+.case-img-placeholder {
+  width: 100%; aspect-ratio: 16/9;
+  background: var(--surface2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: .6rem; color: var(--muted); font-size: .78rem;
+  font-family: 'Syne', sans-serif; letter-spacing: 1px; text-transform: uppercase;
+  border-bottom: 1px solid var(--border); position: relative; overflow: hidden;
+}
+.case-img-placeholder::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(61,127,255,.04) 100%);
+}
+.case-img-placeholder .ph-icon { font-size: 2.2rem; opacity: .35; }
+.case-img-placeholder .ph-label { opacity: .4; }
+
+.case-body { padding: 1.6rem 1.8rem 2rem; display: flex; flex-direction: column; flex: 1; }
+
+.case-tag {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-family: 'Syne', sans-serif; font-size: .68rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: .9rem;
+}
+.case-tag::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue); flex-shrink: 0;
+}
+
+.case-card h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -.2px; margin-bottom: .6rem; line-height: 1.3; }
+.case-card p { font-size: .87rem; color: var(--sub); line-height: 1.65; flex: 1; }
+
+.case-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border);
+}
+.case-result { font-family: 'Syne', sans-serif; font-size: .82rem; font-weight: 700; color: var(--blue); }
+.case-duration { font-size: .75rem; color: var(--muted); }
+
+/* ── RESPONSIVE ACCUEIL ── */
+@media (max-width: 960px) {
+  .svc-grid { grid-template-columns: 1fr 1fr; }
+  .cases-grid { grid-template-columns: 1fr 1fr; }
+  .cases-grid .case-featured { grid-column: span 2; }
+}
+
+@media (max-width: 700px) {
+  .svc-grid { grid-template-columns: 1fr; }
+  .cases-grid { grid-template-columns: 1fr; }
+  .cases-grid .case-featured { grid-column: span 1; }
+  .case-featured .case-img,
+  .case-featured .case-img-placeholder { aspect-ratio: 16/9; }
+  .cta-contacts { flex-direction: column; align-items: center; gap: 1.2rem; }
+}

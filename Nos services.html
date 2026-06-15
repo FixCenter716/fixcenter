@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FixCenter — Rendez-vous</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="Nos services.css">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- Stripe -->
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <script>
+    /* ══ CLÉS ══════════════════════════════════════════ */
+    const EMAILJS_PUBLIC_KEY  = 'VfAw-iZauGCBrMoLv';
+    const EMAILJS_SERVICE_ID  = 'service_s5k4c0o';
+    const EMAILJS_TEMPLATE_ID = 'template_334p6mw';
+    const STRIPE_PUBLIC_KEY   = 'pk_test_51TebOe1EEsh6UDnj4lzbATjmLWLJa3sDiEQANO3EvhuQZVewA4FpF0eVl1dKnRvOYeHXKW7k8xKKSg6Isefn316u004NI0ojhh';
+    /* ✅ EmailJS initialisé UNE SEULE FOIS ici */
+    document.addEventListener('DOMContentLoaded', () => {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    });
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="index.html">Fix<b>Center</b></a>
+  <ul class="nav-links" id="nav">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="Nos services.html">Nos services</a></li>
+    <li><a href="PC Gaming.html">PC Gaming</a></li>
+    <li><a href="Reconditionnés.html">Reconditionnés</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-btn" href="Contact.html">Demandez un Devis</a>
+  <div class="burger" onclick="document.getElementById('nav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-pill">
+      <span class="dot"></span>
+      Prise de rendez-vous
+    </div>
+    <h1>
+      <span class="a">Réservez</span><br>
+      <span class="accent">en ligne</span><br>
+    </h1>
+    <p class="hero-desc">Choisissez votre service, une date et un créneau. On s'occupe du reste.</p>
+    <div class="caution-notice">
+      <span class="c-icon">⚠️</span>
+      <span>Une <strong>caution est requise</strong> pour confirmer tout rendez-vous. Elle n'est pas remboursable en cas d'annulation tardive (moins de 24h). Un devis complet vous sera fourni avant toute intervention.</span>
+    </div>
+  </div>
+  <div class="scroll-hint"></div>
+</section>
+
+<!-- CONTENU -->
+<div class="rdv-wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3>Quel service ?</h3>
+      <p>Sélectionnez une prestation</p>
+    </div>
+
+    <!-- Smartphones -->
+    <div class="cat-group" id="cat-phones">
+      <div class="cat-label" onclick="toggleCat('cat-phones')">
+        <div class="cat-label-left"><span class="cat-ico">📱</span><span class="cat-name">Smartphones</span></div>
+        <span class="cat-chevron">▼</span>
+      </div>
+      <div class="cat-items">
+        <div class="service-option" onclick="selectService(this,'Remplacement écran','Smartphone / Tablette','Dès 5 000 XPF',5000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Remplacement écran</span><span class="service-price">Dès 5 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Remplacement batterie','Smartphone / Tablette','Dès 4 000 XPF',4000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Remplacement batterie</span><span class="service-price">Dès 4 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Connecteur de charge','Smartphone / Tablette','Dès 3 000 XPF',3000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Connecteur de charge</span><span class="service-price">Dès 3 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Caméra / haut-parleur','Smartphone / Tablette','Dès 3 000 XPF',3000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Caméra / haut-parleur</span><span class="service-price">Dès 3 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Diagnostic complet','Smartphone / Tablette','Dès 1 500 XPF',1500)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Diagnostic complet</span><span class="service-price">Dès 1 500 XPF</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tablettes -->
+    <div class="cat-group" id="cat-tablet">
+      <div class="cat-label" onclick="toggleCat('cat-tablet')">
+        <div class="cat-label-left"><span class="cat-ico">📟</span><span class="cat-name">Tablettes</span></div>
+        <span class="cat-chevron">▼</span>
+      </div>
+      <div class="cat-items">
+        <div class="service-option" onclick="selectService(this,'Remplacement écran tablette','Tablette','Dès 5 000 XPF',5000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Remplacement écran</span><span class="service-price">Dès 5 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Remplacement batterie tablette','Tablette','Dès 4 000 XPF',4000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Remplacement batterie</span><span class="service-price">Dès 4 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Connecteur de charge tablette','Tablette','Dès 3 000 XPF',3000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Connecteur de charge</span><span class="service-price">Dès 3 000 XPF</span>
+         </div>  
+        <div class="service-option" onclick="selectService(this,'Diagnostic complet tablette','Tablette','Dès 1 500 XPF',1500)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Diagnostic complet</span><span class="service-price">Dès 1500 XPF</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PC Portables -->
+    <div class="cat-group" id="cat-laptop">
+      <div class="cat-label" onclick="toggleCat('cat-laptop')">
+        <div class="cat-label-left"><span class="cat-ico">💻</span><span class="cat-name">PC Portables</span></div>
+        <span class="cat-chevron">▼</span>
+      </div>
+      <div class="cat-items">
+        <div class="service-option" onclick="selectService(this,'Upgrade SSD / RAM','PC Portable','Dès 5 000 XPF',5000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Upgrade SSD / RAM</span><span class="service-price">Dès 5 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Remplacement clavier','PC Portable','Dès 7 000 XPF',7000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Remplacement clavier</span><span class="service-price">Dès 7 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Nettoyage ventilation','PC Portable','Dès 5 000 XPF',5000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Nettoyage ventilation</span><span class="service-price">Dès 5 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Réinstallation système','PC Portable','Dès 7 000 XPF',7000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Réinstallation système</span><span class="service-price">Dès 7 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Remplacement écran PC','PC Portable','Dès 10 000 XPF',10000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Remplacement écran</span><span class="service-price">Dès 10 000 XPF</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PC Fixes -->
+    <div class="cat-group" id="cat-desktop">
+      <div class="cat-label" onclick="toggleCat('cat-desktop')">
+        <div class="cat-label-left"><span class="cat-ico">🖥️</span><span class="cat-name">PC Fixes</span></div>
+        <span class="cat-chevron">▼</span>
+      </div>
+      <div class="cat-items">
+        <div class="service-option" onclick="selectService(this,'Dépannage PC fixe','PC Fixe','Dès 5 000 XPF',5000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Dépannage et diagnostic</span><span class="service-price">Dès 5 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Changement composant','PC Fixe','Dès 5 000 XPF',5000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Changement de composant</span><span class="service-price">Dès 5 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Nettoyage PC fixe','PC Fixe','Dès 3 000 XPF',3000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Nettoyage complet</span><span class="service-price">Dès 3 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Optimisation système','PC Fixe','Dès 5 000 XPF',5000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Optimisation système</span><span class="service-price">Dès 5 000 XPF</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Consoles -->
+    <div class="cat-group" id="cat-console">
+      <div class="cat-label" onclick="toggleCat('cat-console')">
+        <div class="cat-label-left"><span class="cat-ico">🎮</span><span class="cat-name">Consoles</span></div>
+        <span class="cat-chevron">▼</span>
+      </div>
+      <div class="cat-items">
+        <div class="service-option" onclick="selectService(this,'Réparation PS5','Console','Dès 10 000 XPF',10000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Réparation PS5</span><span class="service-price">Dès 10 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Réparation Xbox','Console','Dès 10 000 XPF',10000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Réparation Xbox Series</span><span class="service-price">Dès 10 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Réparation Switch','Console','Dès 5 000 XPF',5000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Réparation Nintendo Switch</span><span class="service-price">Dès 5 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Réparation manette','Console','Dès 3 000 XPF',3000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Réparation manette</span><span class="service-price">Dès 3 000 XPF</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Données et Divers -->
+    <div class="cat-group" id="cat-data">
+      <div class="cat-label" onclick="toggleCat('cat-data')">
+        <div class="cat-label-left"><span class="cat-ico">💾</span><span class="cat-name">Données et Divers</span></div>
+        <span class="cat-chevron">▼</span>
+      </div>
+      <div class="cat-items">
+        <div class="service-option" onclick="selectService(this,'Récupération de données','Données','Sur devis',0)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Récupération de données</span><span class="service-price">Sur devis</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Réparation accessoire','Accessoire','Dès 3 000 XPF',3000)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Réparation accessoire</span><span class="service-price">Dès 3 000 XPF</span>
+        </div>
+        <div class="service-option" onclick="selectService(this,'Autre / Non listé','Divers','À définir',0)">
+          <input type="radio" name="service"><span class="service-dot"></span>
+          <span class="service-name">Autre / Non listé</span><span class="service-price">À définir</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- FORMULAIRE -->
+  <div class="form-panel" id="formPanel">
+
+    <!-- Banner service sélectionné -->
+    <div class="selected-service-banner hidden" id="serviceBanner">
+      <div class="ssb-left">
+        <h4 id="bannerService">—</h4>
+        <p id="bannerCat">—</p>
+      </div>
+      <span class="ssb-price" id="bannerPrice">—</span>
+    </div>
+
+    <!-- Infos client -->
+    <div class="form-block">
+      <h3 class="form-block-title">Vos coordonnées</h3>
+      <p class="form-block-sub">Ces informations nous permettront de vous confirmer le rendez-vous.</p>
+      <div class="field-row">
+        <div class="field"><label>Prénom</label><input type="text" placeholder="..." id="fname"></div>
+        <div class="field"><label>Nom</label><input type="text" placeholder="..." id="lname"></div>
+      </div>
+      <div class="field-row" style="margin-top:1.2rem;">
+        <div class="field"><label>Téléphone</label><input type="tel" placeholder="+689 00 00 00" id="phone"></div>
+        <div class="field"><label>E-mail</label><input type="email" placeholder="@gmail.com" id="email"></div>
+      </div>
+    </div>
+
+    <!-- Appareil -->
+    <div class="form-block">
+      <h3 class="form-block-title">Votre appareil</h3>
+      <p class="form-block-sub">Décrivez l'appareil et la panne constatée.</p>
+      <div class="field-row">
+        <div class="field"><label>Marque</label><input type="text" placeholder="Apple, Samsung, Sony..." id="brand"></div>
+        <div class="field"><label>Modèle</label><input type="text" placeholder="iPhone 13, PS5, XPS 15..." id="model"></div>
+      </div>
+      <div class="field-row full" style="margin-top:1.2rem;">
+        <div class="field">
+          <label>Description du problème</label>
+          <textarea placeholder="Décrivez la panne, depuis quand, comment ça s'est passé..." id="issue"></textarea>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <label style="font-size:.78rem;font-weight:500;color:var(--sub);letter-spacing:.3px;text-transform:uppercase;display:block;margin-bottom:.5rem;">Photos (optionnel)</label>
+        <div class="device-upload" onclick="document.getElementById('photoInput').click()">
+          <div class="up-icon">📎</div>
+          <p>Cliquez pour ajouter des photos</p>
+          <span>JPG, PNG — max 5 Mo par photo</span>
+          <input type="file" id="photoInput" accept="image/*" multiple onchange="handlePhotos(this)">
+        </div>
+        <div id="photoPreview" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem;"></div>
+      </div>
+    </div>
+
+    <!-- Date & créneau -->
+    <div class="form-block">
+      <h3 class="form-block-title">Date et créneau</h3>
+      <p class="form-block-sub">Choisissez le jour et l'heure qui vous conviennent.</p>
+      <div class="cal-nav">
+        <div class="cal-nav-btn" onclick="changeMonth(-1)">‹</div>
+        <h4 id="calTitle"></h4>
+        <div class="cal-nav-btn" onclick="changeMonth(1)">›</div>
+      </div>
+      <div class="calendar-grid" id="calGrid"></div>
+      <p class="slots-label" id="slotsLabel" style="display:none;">Créneaux disponibles</p>
+      <div class="slots-grid" id="slotsGrid" style="display:none;"></div>
+    </div>
+
+    <!-- Caution Stripe -->
+    <div class="form-block" id="stripeBlock" style="display:none;">
+      <h3 class="form-block-title">Caution de réservation</h3>
+      <p class="form-block-sub">Un montant de caution est requis pour confirmer votre créneau. Il sera déduit de votre facture finale.</p>
+      <div id="caution-amount" style="font-size:1.1rem;font-weight:600;margin-bottom:1rem;"></div>
+      <div id="stripe-card-element" style="padding:12px;border:1px solid var(--border);border-radius:10px;background:var(--bg2);"></div>
+      <div id="stripe-error" style="color:#e53e3e;font-size:.85rem;margin-top:.5rem;"></div>
+    </div>
+
+    <!-- Submit -->
+    <div class="form-block">
+      <div class="submit-area">
+        <p class="submit-note">En confirmant, vous acceptez le versement d'une caution. Un récapitulatif vous sera envoyé par e-mail.</p>
+        <button class="btn-submit" id="submitBtn" onclick="submitForm()">Confirmer le rendez-vous →</button>
+      </div>
+    </div>
+
+    <!-- Confirmation -->
+    <div class="confirmation" id="confirmationBlock">
+      <div class="conf-icon">✅</div>
+      <h3>Rendez-vous confirmé !</h3>
+      <p>Nous avons bien reçu votre demande. Un e-mail de confirmation vous a été envoyé.</p>
+      <div class="conf-summary" id="confSummary"></div>
+      <div id="calendarBtn" style="margin-top:1.2rem;"></div>
+      <p style="margin-top:1rem;">À très bientôt chez <strong>FixCenter</strong> 👋</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <span class="foot-copy">© 2025 FixCenter — Tous droits réservés</span>
+    <div class="foot-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="rdv.html">Rendez-vous</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════
+   SERVICES
+══════════════════════════════════════════ */
+let selectedService = null;
+
+function toggleCat(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+function selectService(el, name, cat, price, priceXPF) {
+  document.querySelectorAll('.service-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedService = { name, cat, price, priceXPF };
+
+  const banner = document.getElementById('serviceBanner');
+  banner.classList.remove('hidden');
+  document.getElementById('bannerService').textContent = name;
+  document.getElementById('bannerCat').textContent = cat;
+  document.getElementById('bannerPrice').textContent = price;
+
+  const stripeBlock = document.getElementById('stripeBlock');
+  if (priceXPF > 0) {
+    stripeBlock.style.display = 'block';
+    const cautionAmount = Math.max(1000, Math.round(priceXPF * 0.2));
+    document.getElementById('caution-amount').textContent =
+      'Caution : ' + cautionAmount.toLocaleString('fr-FR') + ' XPF';
+    initStripe(cautionAmount);
+  } else {
+    stripeBlock.style.display = 'none';
+  }
+}
+
+/* ══════════════════════════════════════════
+   CALENDRIER
+══════════════════════════════════════════ */
+const MONTHS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+const DAYS   = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+const TAKEN_SLOTS = [];
+const ALL_SLOTS = ['09:00','09:30','10:00','10:30','11:00','11:30','12:00','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00'];
+
+let currentYear, currentMonth, selectedDay = null, selectedSlot = null;
+
+function initCalendar() {
+  const now = new Date();
+  currentYear = now.getFullYear();
+  currentMonth = now.getMonth();
+  renderCalendar();
+}
+
+function changeMonth(dir) {
+  currentMonth += dir;
+  if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+  if (currentMonth < 0)  { currentMonth = 11; currentYear--; }
+  selectedDay = null; selectedSlot = null;
+  document.getElementById('slotsGrid').style.display = 'none';
+  document.getElementById('slotsLabel').style.display = 'none';
+  renderCalendar();
+}
+
+function renderCalendar() {
+  document.getElementById('calTitle').textContent = MONTHS[currentMonth] + ' ' + currentYear;
+  const grid = document.getElementById('calGrid');
+  grid.innerHTML = '';
+  DAYS.forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'cal-day-name'; el.textContent = d;
+    grid.appendChild(el);
+  });
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  const offset = (firstDay === 0 ? 6 : firstDay - 1);
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const today = new Date();
+  for (let i = 0; i < offset; i++) {
+    const el = document.createElement('div');
+    el.className = 'cal-day empty'; grid.appendChild(el);
+  }
+  for (let d = 1; d <= daysInMonth; d++) {
+    const el = document.createElement('div');
+    el.className = 'cal-day'; el.textContent = d;
+    const date = new Date(currentYear, currentMonth, d);
+    const isToday = date.toDateString() === today.toDateString();
+    const isPast  = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const isSunday = date.getDay() === 0;
+    if (isPast || isSunday) {
+      el.classList.add('disabled');
+    } else {
+      if (isToday) el.classList.add('today');
+      el.onclick = () => selectDay(d, el);
+    }
+    grid.appendChild(el);
+  }
+}
+
+function selectDay(d, el) {
+  document.querySelectorAll('.cal-day').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedDay = { day: d, month: currentMonth, year: currentYear };
+  selectedSlot = null;
+  renderSlots();
+}
+
+function renderSlots() {
+  const grid = document.getElementById('slotsGrid');
+  const label = document.getElementById('slotsLabel');
+  grid.innerHTML = '';
+  grid.style.display = 'grid';
+  label.style.display = 'block';
+  ALL_SLOTS.forEach(s => {
+    const el = document.createElement('div');
+    el.className = 'slot'; el.textContent = s;
+    if (TAKEN_SLOTS.includes(s)) {
+      el.classList.add('taken');
+    } else {
+      el.onclick = () => {
+        document.querySelectorAll('.slot').forEach(x => x.classList.remove('selected'));
+        el.classList.add('selected');
+        selectedSlot = s;
+      };
+    }
+    grid.appendChild(el);
+  });
+}
+
+/* ══════════════════════════════════════════
+   STRIPE
+══════════════════════════════════════════ */
+let stripeInstance = null;
+let stripeElements = null;
+let cardElement = null;
+
+function initStripe(cautionAmount) {
+  if (cardElement) { cardElement.destroy(); cardElement = null; }
+  stripeInstance = Stripe(STRIPE_PUBLIC_KEY);
+  stripeElements = stripeInstance.elements();
+  cardElement = stripeElements.create('card', {
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#1a1a1a',
+        fontFamily: 'Inter, sans-serif',
+        '::placeholder': { color: '#aaa' }
+      }
+    }
+  });
+  cardElement.mount('#stripe-card-element');
+  cardElement.on('change', e => {
+    document.getElementById('stripe-error').textContent = e.error ? e.error.message : '';
+  });
+}
+
+async function processStripePayment(cautionAmount) {
+  if (!stripeInstance || !cardElement) return true;
+
+  const fname = document.getElementById('fname').value.trim();
+  const lname = document.getElementById('lname').value.trim();
+  const email  = document.getElementById('email').value.trim();
+
+  const { paymentMethod, error } = await stripeInstance.createPaymentMethod({
+    type: 'card',
+    card: cardElement,
+    billing_details: { name: fname + ' ' + lname, email }
+  });
+
+  if (error) {
+    document.getElementById('stripe-error').textContent = error.message;
+    return false;
+  }
+
+  // ── Envoi au backend Netlify Function ──────────────────────────────
+  try {
+    const res = await fetch('/.netlify/functions/stripe-payment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        paymentMethodId: paymentMethod.id,
+        amount: cautionAmount,   // en XPF (= en centimes car XPF est sans décimale)
+        currency: 'xpf',
+        description: `Caution FixCenter — ${selectedService.name}`,
+        email
+      })
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      document.getElementById('stripe-error').textContent = data.error || 'Erreur de paiement.';
+      return false;
+    }
+    return true;
+  } catch (err) {
+    document.getElementById('stripe-error').textContent = 'Impossible de contacter le serveur de paiement.';
+    return false;
+  }
+}
+
+/* ══════════════════════════════════════════
+   EMAILJS  ✅ init() est dans le <head>
+══════════════════════════════════════════ */
+function sendConfirmationEmail(data) {
+  // Envoie à TOI (FixCenter)
+  const toFixCenter = emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    to_email:      'fixcenter716@gmail.com',
+    nom:           data.fname + ' ' + data.lname,
+    telephone:     data.phone,
+    email_client:  data.email,
+    service:       data.service,
+    categorie:     data.cat,
+    tarif:         data.price,
+    appareil:      data.brand + ' ' + data.model,
+    probleme:      data.issue,
+    date_rdv:      data.dateStr,
+    heure_rdv:     data.slot
+  });
+
+  // Envoie au CLIENT (si il a mis son email)
+  const promises = [toFixCenter];
+  if (data.email) {
+    const toClient = emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      to_email:      data.email,
+      nom:           data.fname + ' ' + data.lname,
+      telephone:     data.phone,
+      email_client:  data.email,
+      service:       data.service,
+      categorie:     data.cat,
+      tarif:         data.price,
+      appareil:      data.brand + ' ' + data.model,
+      probleme:      data.issue,
+      date_rdv:      data.dateStr,
+      heure_rdv:     data.slot
+    });
+    promises.push(toClient);
+  }
+
+  return Promise.all(promises);
+}
+
+/* ══════════════════════════════════════════
+   GOOGLE CALENDAR
+══════════════════════════════════════════ */
+function buildGoogleCalendarLink(data) {
+  const pad = n => String(n).padStart(2, '0');
+  const y = data.year, m = pad(data.month + 1), d = pad(data.day);
+  const [h, min] = data.slot.split(':');
+  const startDT = `${y}${m}${d}T${h}${min}00`;
+  const endH = pad(parseInt(h) + 1);
+  const endDT = `${y}${m}${d}T${endH}${min}00`;
+  const title   = encodeURIComponent(`FixCenter — ${data.service}`);
+  const details = encodeURIComponent(`Client : ${data.fname} ${data.lname}\nTél : ${data.phone}\nAppareil : ${data.brand} ${data.model}\nProblème : ${data.issue}`);
+  const location = encodeURIComponent('FixCenter, Polynésie française');
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDT}/${endDT}&details=${details}&location=${location}`;
+}
+
+/* ══════════════════════════════════════════
+   PHOTOS
+══════════════════════════════════════════ */
+function handlePhotos(input) {
+  const preview = document.getElementById('photoPreview');
+  Array.from(input.files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.style.cssText = 'width:72px;height:72px;object-fit:cover;border-radius:8px;border:1px solid var(--border);';
+      preview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+/* ══════════════════════════════════════════
+   SUBMIT
+══════════════════════════════════════════ */
+async function submitForm() {
+  const fname = document.getElementById('fname').value.trim();
+  const lname = document.getElementById('lname').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const brand = document.getElementById('brand').value.trim();
+  const model = document.getElementById('model').value.trim();
+  const issue = document.getElementById('issue').value.trim();
+
+  if (!selectedService)   { alert('Veuillez sélectionner un service.'); return; }
+  if (!fname || !lname)   { alert('Veuillez renseigner votre nom et prénom.'); return; }
+  if (!phone && !email)   { alert('Veuillez renseigner au moins un moyen de contact.'); return; }
+  if (!selectedDay)       { alert('Veuillez choisir une date.'); return; }
+  if (!selectedSlot)      { alert('Veuillez choisir un créneau horaire.'); return; }
+
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Traitement en cours…';
+  btn.disabled = true;
+
+  // 1. Paiement Stripe (si caution > 0)
+  if (selectedService.priceXPF > 0) {
+    const cautionAmount = Math.max(1000, Math.round(selectedService.priceXPF * 0.2));
+    const paymentOk = await processStripePayment(cautionAmount);
+    if (!paymentOk) {
+      btn.textContent = 'Confirmer le rendez-vous →';
+      btn.disabled = false;
+      return;
+    }
+  }
+
+  const dateStr = `${String(selectedDay.day).padStart(2,'0')}/${String(selectedDay.month+1).padStart(2,'0')}/${selectedDay.year}`;
+
+  const formData = {
+    fname, lname, phone, email, brand, model, issue,
+    service: selectedService.name,
+    cat:     selectedService.cat,
+    price:   selectedService.price,
+    dateStr,
+    slot:    selectedSlot,
+    day:     selectedDay.day,
+    month:   selectedDay.month,
+    year:    selectedDay.year
+  };
+
+  // 2. Email de confirmation (EmailJS)
+  try {
+    await sendConfirmationEmail(formData);
+    console.log('✅ Emails envoyés avec succès');
+  } catch (e) {
+    console.warn('⚠️ EmailJS erreur :', e);
+    // On continue quand même
+  }
+
+  // 3. Confirmation visuelle
+  const cautionLine = selectedService.priceXPF > 0
+    ? `<div class="conf-row"><span>Caution réglée</span><span>${Math.max(1000, Math.round(selectedService.priceXPF * 0.2)).toLocaleString('fr-FR')} XPF ✓</span></div>`
+    : '';
+
+  document.getElementById('confSummary').innerHTML = `
+    <div class="conf-row"><span>Service</span><span>${selectedService.name}</span></div>
+    <div class="conf-row"><span>Client</span><span>${fname} ${lname}</span></div>
+    <div class="conf-row"><span>Date</span><span>${dateStr} à ${selectedSlot}</span></div>
+    <div class="conf-row"><span>Tarif indicatif</span><span>${selectedService.price}</span></div>
+    ${cautionLine}
+  `;
+
+  // 4. Bouton Google Calendar
+  const calLink = buildGoogleCalendarLink({
+    fname, lname, phone, brand, model, issue,
+    service: selectedService.name,
+    day: selectedDay.day, month: selectedDay.month, year: selectedDay.year,
+    slot: selectedSlot
+  });
+  document.getElementById('calendarBtn').innerHTML = `
+    <a href="${calLink}" target="_blank" style="
+      display:inline-flex;align-items:center;gap:.5rem;
+      padding:.7rem 1.2rem;border-radius:10px;
+      background:#1a73e8;color:#fff;font-weight:500;
+      font-size:.9rem;text-decoration:none;">
+      📅 Ajouter à Google Calendar
+    </a>
+  `;
+
+  // 5. Masquer formulaire, afficher confirmation
+  document.querySelectorAll('.form-block').forEach(b => b.style.display = 'none');
+  document.getElementById('serviceBanner').style.display = 'none';
+  document.getElementById('confirmationBlock').classList.add('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+initCalendar();
+</script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FixCenter</title>
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="Contact.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="index.html">Fix<b>Center</b></a>
+  <ul class="nav-links" id="nav">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="Nos services.html">Nos services</a></li>
+    <li><a href="PC Gaming.html">PC Gaming</a></li>
+    <li><a href="Reconditionnés.html">Reconditionnés</a></li>
+    <li><a href="Contact.html" class="active">Contact</a></li>
+  </ul>
+  <a class="nav-btn" href="">Demander un devis</a>
+  <div class="burger" onclick="document.getElementById('nav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="eyebrow">On est là</p>
+    <h1>
+      Contactez<br>
+      <span class="accent">FixCenter.</span>
+    </h1>
+    <p>Une question, un devis, une urgence — on répond vite.<br>Venez nous voir à Pirae ou écrivez-nous directement.</p>
+  </div>
+</div>
+<!-- ── CONTENU ── -->
+<div class="contact-wrapper">
+  <!-- COLONNE GAUCHE -->
+  <div class="contact-info">
+    <!-- Infos pratiques -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <h3>Infos pratiques</h3>
+        <p>Comment nous joindre</p>
+      </div>
+      <div class="info-items">
+        <div class="info-item">
+          <div class="info-ico">📍</div>
+          <div class="info-text">
+            <div class="it-label">Adresse</div>
+            <div class="it-val">Pirae, Rue Marie Frebault, lot 290. Tahiti — Polynésie française</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-ico">📞</div>
+          <div class="info-text">
+            <div class="it-label">Téléphone</div>
+            <div class="it-val"><a href="tel:+68900000000">+689 00 00 00</a></div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-ico">✉️</div>
+          <div class="info-text">
+            <div class="it-label">E-mail</div>
+            <div class="it-val"><a href="mailto:fixcenter716@gmail.com">fixcenter716@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-ico">⚡</div>
+          <div class="info-text">
+            <div class="it-label">Délai de réponse</div>
+            <div class="it-val">1 h - 24 h</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Horaires -->
+    <div class="hours-card">
+      <div class="hours-card-header">
+        <h3>Horaires d'ouverture</h3>
+        <span class="status-dot" id="statusDot"></span>
+        <span class="status-label" id="statusLabel"></span>
+      </div>
+      <div class="hours-list">
+        <div class="hours-row" id="day-1">
+          <span class="day">Lundi</span><span class="time">09h00 — 18h00</span>
+        </div>
+        <div class="hours-row" id="day-2">
+          <span class="day">Mardi</span><span class="time">09h00 — 18h00</span>
+        </div>
+        <div class="hours-row" id="day-3">
+          <span class="day">Mercredi</span><span class="time">09h00 — 18h00</span>
+        </div>
+        <div class="hours-row" id="day-4">
+          <span class="day">Jeudi</span><span class="time">09h00 — 18h00</span>
+        </div>
+        <div class="hours-row" id="day-5">
+          <span class="day">Vendredi</span><span class="time">09h00 — 18h00</span>
+        </div>
+        <div class="hours-row" id="day-6">
+          <span class="day">Samedi</span><span class="time" off>Fermé</span>
+        </div>
+        <div class="hours-row" id="day-0">
+          <span class="day">Dimanche</span><span class="time off">Fermé</span>
+        </div>
+      </div>
+    </div>
+    <!-- Réseaux sociaux -->
+    <div class="social-card">
+      <h3>Retrouvez-nous</h3>
+      <div class="social-links">
+        <a href="#" class="social-btn"><span></span> Facebook</a>
+        <a href="https://www.instagram.com/fixcenter.pf/" class="social-btn"><span>📸</span> Instagram</a>
+        <a href="#" class="social-btn"><span>🎵</span> TikTok</a>
+        <a href="[wa.me](https://wa.me/68900000000)" class="social-btn"><span>💬</span> WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <!-- COLONNE DROITE — FORMULAIRE -->
+  <div class="contact-form-wrap" id="Devis">
+    <div class="form-header">
+      <h3>Envoyez-nous un message</h3>
+      <p>Réponse garantie sous 2h en jours ouvrés.</p>
+    </div>
+    <div class="form-body" id="formBody">
+      <!-- Onglets -->
+      <div>
+        <p style="font-size:.72rem;color:var(--sub);text-transform:uppercase;letter-spacing:1px;margin-bottom:.7rem;font-family:'Syne',sans-serif;font-weight:700;">Type de demande</p>
+        <div class="form-tabs">
+          <div class="form-tab active" onclick="setTab(this,'Réparation')">🔧 Réparation</div>
+          <div class="form-tab" onclick="setTab(this,'PC Gaming')">⚙️ PC Gaming</div>
+          <div class="form-tab" onclick="setTab(this,'Reconditionné')">♻️ Reconditionné</div>
+          <div class="form-tab" onclick="setTab(this,'Autre')">💬 Autre</div>
+        </div>
+        <input type="hidden" id="tabValue" value="Réparation">
+      </div>
+      <!-- Champs -->
+      <div class="field-row">
+        <div class="field">
+          <label>Prénom *</label>
+          <input type="text" id="c-fname" placeholder="Jean">
+        </div>
+        <div class="field">
+          <label>Nom *</label>
+          <input type="text" id="c-lname" placeholder="Dupont">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Téléphone *</label>
+          <input type="tel" id="c-phone" placeholder="+689 00 00 00">
+        </div>
+        <div class="field">
+          <label>E-mail *</label>
+          <input type="email" id="c-email" placeholder="jean@exemple.pf">
+        </div>
+      </div>
+      <div class="field-row full">
+        <div class="field">
+          <label>Objet</label>
+          <select id="c-subject">
+            <option value="">— Sélectionner —</option>
+            <option>Demande de devis</option>
+            <option>Renseignement tarifs</option>
+            <option>Suivi de réparation</option>
+            <option>Montage PC Gaming</option>
+            <option>Stock reconditionné</option>
+            <option>Autre</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row full">
+        <div class="field">
+          <label>Message *</label>
+          <textarea id="c-message" placeholder="Décrivez votre demande, votre appareil, votre budget..."></textarea>
+        </div>
+      </div>
+      <div class="form-footer">
+        <p class="form-note">Vos données ne seront jamais partagées et servent uniquement à traiter votre demande.</p>
+        <button class="btn-send" id="sendBtn" onclick="sendMessage()">
+          Envoyer →
+        </button>
+      </div>
+    </div>
+    <!-- Confirmation -->
+    <div class="form-success" id="formSuccess">
+      <div class="fs-icon">✅</div>
+      <h4>Message envoyé !</h4>
+      <p>On a bien reçu votre message et on vous répond sous 2h.<br>À très bientôt chez <strong>FixCenter</strong> 👋</p>
+    </div>
+  </div>
+</div>
+<!-- ── CARTE ── -->
+<div class="map-section">
+  <div class="map-header">
+    <div>
+      <p class="eyebrow">Nous trouver</p>
+      <h2>On est à <span class="dim">Pirae.</span></h2>
+    </div>
+    <p>Venez directement en boutique sans rendez-vous pour un diagnostic gratuit.</p>
+  </div>
+  <div class="map-frame">
+    <!--
+      ► REMPLACE l'iframe src par ton lien Google Maps embed
+         Google Maps → ton adresse → Partager → Intégrer une carte → copie le src
+         ex: src="[google.com](https://www.google.com/maps/embed?pb=)"
+    -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.4798678154016!2d-149.54787389999998!3d-17.53232549999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x769a39ef397991cb%3A0xccd373c178ce62f!2s290%20Rue%20Marie%20Fr%C3%A9bault%2C%20Pirae%2C%20Polyn%C3%A9sie%20fran%C3%A7aise!5e0!3m2!1sfr!2sfr!4v1780807479343!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      allowfullscreen loading="lazy"
+      onerror="this.style.display='none'">
+    </iframe>
+    <!-- Overlay info boutique -->
+    <div class="map-overlay">
+      <h4>FixCenter</h4>
+      <p>Rue Marie Frebault lot 290. Pirae, Tahiti<br>Polynésie française</p>
+      <div class="mo-badge">📍 Voir l'itinéraire</div>
+    </div>
+  </div>
+</div>
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <span class="foot-copy">© 2025 FixCenter — Tous droits réservés</span>
+    <div class="foot-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="rdv.html">Rendez-vous</a>
+    </div>
+  </div>
+</footer>
+<script>
+/* ── ONGLETS ── */
+function setTab(el, val) {
+  document.querySelectorAll('.form-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tabValue').value = val;
+}
+/* ── HORAIRES — highlight jour actuel & statut ouvert/fermé ── */
+(function() {
+  const now = new Date();
+  const day  = now.getDay();   // 0=dim, 1=lun...
+  const hour = now.getHours() + now.getMinutes() / 60;
+  // Highlight
+  const row = document.getElementById('day-' + day);
+  if (row) row.classList.add('today');
+  // Statut ouvert/fermé
+  const hours = {
+    1: [8,18], 2: [8,18], 3: [8,18], 4: [8,18], 5: [8,18],
+    6: [9,13], 0: null
+  };
+  const dot   = document.getElementById('statusDot');
+  const label = document.getElementById('statusLabel');
+  const h = hours[day];
+  const isOpen = h && hour >= h[0] && hour < h[1];
+  dot.className   = 'status-dot ' + (isOpen ? 'open' : 'closed');
+  label.className = 'status-label ' + (isOpen ? 'open' : 'closed');
+  label.textContent = isOpen ? 'Ouvert maintenant' : 'Fermé actuellement';
+})();
+/* ── ENVOI FORMULAIRE ── */
+function sendMessage() {
+  const fname   = document.getElementById('c-fname').value.trim();
+  const lname   = document.getElementById('c-lname').value.trim();
+  const phone   = document.getElementById('c-phone').value.trim();
+  const email   = document.getElementById('c-email').value.trim();
+  const message = document.getElementById('c-message').value.trim();
+  const subject = document.getElementById('c-subject').value;
+  const tab     = document.getElementById('tabValue').value;
+  if (!fname || !lname)    { alert('Veuillez renseigner votre prénom et nom.'); return; }
+  if (!phone && !email)    { alert('Veuillez renseigner au moins un moyen de contact.'); return; }
+  if (!message)            { alert('Veuillez écrire un message.'); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email) {
+    alert('Adresse e-mail invalide.'); return;
+  }
+  const btn = document.getElementById('sendBtn');
+  btn.disabled = true;
+  btn.textContent = 'Envoi...';
+  /*
+    ► Branche ici ton service d'envoi :
+       - EmailJS : emailjs.send(SERVICE_ID, TEMPLATE_ID, { ... })
+       - Formspree : fetch('[formspree.io](https://formspree.io/f/TON_ID)', { method:'POST', body: FormData })
+       - Ton propre backend
+  */
+  // Simulation (remplace par ton vrai appel)
+  setTimeout(() => {
+    document.getElementById('formBody').style.display    = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  }, 800);
+}
+/* ── NAV smooth scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    document.getElementById('nav').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>

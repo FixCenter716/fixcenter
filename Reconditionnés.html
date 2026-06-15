@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FixCenter</title>
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="Reconditionnés.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="index.html">Fix<b>Center</b></a>
+  <ul class="nav-links" id="nav">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="Nos services.html">Nos services</a></li>
+    <li><a href="PC Gaming.html">PC Gaming</a></li>
+    <li><a href="Reconditionnés.html" class="active">Reconditionnés</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-btn" href="Contact.html">Demander un devis</a>
+  <div class="burger" onclick="document.getElementById('nav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-pill">
+        <span class="dot"></span>
+        Testé · Certifié · Vendu
+      </div>
+      <h1>
+        Appareils reconditionnée<br>
+        <span class="green"> Remis a neuf avec des prix honnêtes</span><br>
+      </h1>
+      <p class="hero-desc">
+        Chaque appareil est inspecté sur 27 points de contrôle, remis à neuf et perfectionné . Sans compromis sur la qualité.
+      </p>
+      <div class="hero-actions">
+        <a href="#catalogue" class="btn-primary">Voir le catalogue</a>
+        <a href="#processus" class="btn-ghost">Notre processus</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hs-item featured">
+        <div class="hs-val">−25<span class="accent">%</span></div>
+        <div class="hs-label">par rapport au prix neuf en moyenne</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-val">27</div>
+        <div class="hs-label">points de contrôle avant mise en vente</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-val">12</div>
+        <div class="hs-label">mois de garantie inclus sur chaque appareil</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-val">85<span style="font-size:1.2rem;color:var(--sub)">%+</span></div>
+        <div class="hs-label">batterie minimum garantie sur tous les mobiles</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><span></span>iPhone<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>MacBook<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>iPad<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>PC Bureau<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>Samsung<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>Consoles<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>Xiaomi<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>AirPods<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>iPhone<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>MacBook<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>iPad<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>PC Bureau<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>Samsung<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>Consoles<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>Xiaomi<span class="marquee-sep">◆</span></div>
+    <div class="marquee-item"><span></span>AirPods<span class="marquee-sep">◆</span></div>
+  </div>
+</div>
+<!-- ── GRADES ── -->
+<section class="grades-wrap">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow green">Nos grades</p>
+        <h2 class="section-title">Comprendre<br><span class="dim">la notation.</span></h2>
+      </div>
+      <p class="section-sub">Chaque appareil reçoit un grade selon son état cosmétique. Le fonctionnement est toujours 100 % vérifié, quel que soit le grade.</p>
+    </div>
+    <div class="grades-grid">
+      <div class="grade-card ga">
+        <div class="grade-letter">A</div>
+        <h4>Comme neuf</h4>
+        <p>Aucune trace visible. Appareil parfait, indiscernable du neuf. Souvent non utilisé ou très peu.</p>
+        <div class="grade-checks">
+          <div class="grade-check"><span class="ck">✓</span> Aucune rayure</div>
+          <div class="grade-check"><span class="ck">✓</span> Écran parfait</div>
+          <div class="grade-check"><span class="ck">✓</span> Batterie ≥ 90 %</div>
+          <div class="grade-check"><span class="ck">✓</span> Accessoires inclus</div>
+        </div>
+      </div>
+      <div class="grade-card gb">
+        <div class="grade-letter">B</div>
+        <h4>Très bon état</h4>
+        <p>Légères traces d'utilisation sur la coque, invisibles à l'écran. Fonctionnement parfait.</p>
+        <div class="grade-checks">
+          <div class="grade-check"><span class="ck">✓</span> Micro-rayures coque</div>
+          <div class="grade-check"><span class="ck">✓</span> Écran sans rayures</div>
+          <div class="grade-check"><span class="ck">✓</span> Batterie ≥ 85 %</div>
+          <div class="grade-check"><span class="ck">✓</span> Chargeur inclus</div>
+        </div>
+      </div>
+      <div class="grade-card gc">
+        <div class="grade-letter">C</div>
+        <h4>Bon état</h4>
+        <p>Traces d'utilisation visibles. Légères marques sur l'écran ou la coque. Parfaitement fonctionnel.</p>
+        <div class="grade-checks">
+          <div class="grade-check"><span class="ck">~</span> Rayures légères</div>
+          <div class="grade-check"><span class="ck">✓</span> Fonctionnel 100 %</div>
+          <div class="grade-check"><span class="ck">✓</span> Batterie ≥ 80 %</div>
+          <div class="grade-check"><span class="ck">~</span> Sans accessoires</div>
+        </div>
+      </div>
+      <div class="grade-card gd">
+        <div class="grade-letter">D</div>
+        <h4>État correct</h4>
+        <p>Marques importantes visibles mais fonctionnement intégral garanti. Prix imbattable.</p>
+        <div class="grade-checks">
+          <div class="grade-check"><span class="ck">!</span> Traces marquées</div>
+          <div class="grade-check"><span class="ck">✓</span> Fonctionnel 100 %</div>
+          <div class="grade-check"><span class="ck">✓</span> Batterie ≥ 75 %</div>
+          <div class="grade-check"><span class="ck">!</span> Sans accessoires</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ── CATALOGUE ── -->
+<section class="catalogue-wrap" id="catalogue">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow blue">Stock disponible</p>
+        <h2 class="section-title">Notre catalogue<br><span class="dim">du moment.</span></h2>
+      </div>
+      <p class="section-sub">Stock mis à jour régulièrement. Contactez-nous pour connaître les dernières disponibilités.</p>
+    </div>
+    <!-- Filtres -->
+    <div class="filters">
+      <div class="filter-btn active" onclick="filterProducts(this,'tous')">Tous</div>
+      <div class="filter-btn" onclick="filterProducts(this,'smartphone')">Smartphones</div>
+      <div class="filter-btn" onclick="filterProducts(this,'tablette')">Tablettes</div>
+      <div class="filter-btn" onclick="filterProducts(this,'laptop')">PC Portables</div>
+      <div class="filter-btn" onclick="filterProducts(this,'desktop')">PC Fixes</div>
+      <div class="filter-btn" onclick="filterProducts(this,'Console')">Consoles</div>
+      <div class="filter-btn" onclick="filterProducts(this,'audio')">Audio</div>
+    </div>
+    <div class="products-grid" id="productsGrid">
+      <!-- ── SMARTPHONES ── -->
+      <div class="product-card" data-cat="smartphone">
+        <img class="product-img" src="" alt="iPhone 13"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-ph" style="display:none;">
+          <span class="ph-ico">📱</span>
+          <span class="ph-txt">Ajoute ta photo</span>
+        </div>
+        <div class="product-body">
+          <div class="product-meta">
+            <span class="product-grade pg-a">● Grade A</span>
+            <span class="product-stock in">En stock</span>
+          </div>
+          <h3>iPhone 13 — 128 Go</h3>
+          <p class="product-sub">Midnight. Face ID, double caméra 12 Mpx. Batterie 91 %. Comme neuf.</p>
+          <div class="product-specs">
+            <span class="ps-tag">128 Go</span>
+            <span class="ps-tag">6,1"</span>
+            <span class="ps-tag">5G</span>
+            <span class="ps-tag">Batt. 91%</span>
+          </div>
+          <div class="product-pricing">
+            <span class="product-price">41 700 CFP</span>
+            <span class="product-original">83 000 CFP</span>
+            <span class="product-saving">−50%</span>
+          </div>
+          <a href="Contact.html" class="product-cta">Nous contacter →</a>
+        </div>
+      </div>
+      <div class="product-card" data-cat="smartphone">
+        <img class="product-img" src="" alt="Samsung Galaxy S22"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-ph" style="display:none;">
+          <span class="ph-ico">📱</span>
+          <span class="ph-txt">Ajoute ta photo</span>
+        </div>
+        <div class="product-body">
+          <div class="product-meta">
+            <span class="product-grade pg-b">● Grade B</span>
+            <span class="product-stock in">En stock</span>
+          </div>
+          <h3>Samsung Galaxy S22 — 256 Go</h3>
+          <p class="product-sub">Phantom Black. Écran AMOLED 120 Hz, triple caméra. Batterie 87 %.</p>
+          <div class="product-specs">
+            <span class="ps-tag">256 Go</span>
+            <span class="ps-tag">6,1"</span>
+            <span class="ps-tag">120 Hz</span>
+            <span class="ps-tag">Batt. 87%</span>
+          </div>
+          <div class="product-pricing">
+            <span class="product-price">29 800 CFP</span>
+            <span class="product-original">59 000 CFP</span>
+            <span class="product-saving">−49%</span>
+          </div>
+          <a href="Contact.html" class="product-cta">Nous contacter →</a>
+        </div>
+      </div>
+      <div class="product-card" data-cat="smartphone">
+        <img class="product-img" src="" alt="iPhone 12"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-ph" style="display:none;">
+          <span class="ph-ico">📱</span>
+          <span class="ph-txt">Ajoute ta photo</span>
+        </div>
+        <div class="product-body">
+          <div class="product-meta">
+            <span class="product-grade pg-b">● Grade B</span>
+            <span class="product-stock low">Dernière unité</span>
+          </div>
+          <h3>iPhone 12 — 64 Go</h3>
+          <p class="product-sub">Bleu. Écran OLED 6,1". Batterie 86 %. Légères micro-rayures sur la coque.</p>
+          <div class="product-specs">
+            <span class="ps-tag">64 Go</span>
+            <span class="ps-tag">6,1"</span>
+            <span class="ps-tag">5G</span>
+            <span class="ps-tag">Batt. 86%</span>
+          </div>
+          <div class="product-pricing">
+            <span class="product-price">29 000 CFP</span>
+            <span class="product-original">55 000 CFP</span>
+            <span class="product-saving">−47%</span>
+          </div>
+          <a href="Contact.html" class="product-cta">Nous contacter →</a>
+        </div>
+      </div>
+      <!-- ── TABLETTES ── -->
+      <div class="product-card" data-cat="tablette">
+        <img class="product-img" src="" alt="iPad Pro 11"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-ph" style="display:none;">
+          <span class="ph-ico">📟</span>
+          <span class="ph-txt">Ajoute ta photo</span>
+        </div>
+        <div class="product-body">
+          <div class="product-meta">
+            <span class="product-grade pg-a">● Grade A</span>
+            <span class="product-stock in">En stock</span>
+          </div>
+          <h3>iPad Pro 11" — 128 Go Wi-Fi</h3>
+          <p class="product-sub">Gris sidéral. Puce M1, écran Liquid Retina. Batterie 93 %. Comme neuf.</p>
+          <div class="product-specs">
+            <span class="ps-tag">128 Go</span>
+            <span class="ps-tag">11"</span>
+            <span class="ps-tag">Puce M1</span>
+            <span class="ps-tag">Batt. 93%</span>
+          </div>
+          <div class="product-pricing">
+            <span class="product-price">53 600 CFP</span>
+            <span class="product-original">95 000 CFP</span>
+            <span class="product-saving">−44%</span>
+          </div>
+          <a href="Contact.html" class="product-cta">Nous contacter →</a>
+        </div>
+      </div>
+      <div class="product-card" data-cat="tablette">
+        <img class="product-img" src="" alt="Samsung Galaxy Tab S7"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-ph" style="display:none;">
+          <span class="ph-ico">📟</span>
+          <span class="ph-txt">Ajoute ta photo</span>
+        </div>
+        <div class="product-body">
+          <div class="product-meta">
+            <span class="product-grade pg-b">● Grade B</span>
+            <span class="product-stock in">En stock</span>
+          </div>
+          <h3>Samsung Galaxy Tab S7 — 128 Go</h3>
+          <p class="product-sub">Noir mystic. Écran 11" 120 Hz, Snapdragon 865+. Batterie 88 %.</p>
+          <div class="product-specs">
+            <span class="ps-tag">128 Go</span>
+            <span class="ps-tag">11"</span>
+            <span class="ps-tag">120 Hz</span>
+            <span class="ps-tag">Batt. 88%</span>
+          </div>
+          <div class="product-pricing">
+            <span class="product-price">35 700 CFP</span>
+            <span class="product-original">66 000 CFP</span>
+            <span class="product-saving">−46%</span>
+          </div>
+          <a href="Contact.html" class="product-cta">Nous contacter →</a>
+        </div>
+      </div>
+      <!-- ── PC PORTABLES ── -->
+      <div class="product-card" data-cat="laptop">
+        <img class="product-img" src="" alt="MacBook Air M1"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-ph" style="display:none;">
+          <span class="ph-ico">💻</span>
+          <span class="ph-txt">Ajoute ta photo</span>
+        </div>
+        <div class="product-body">
+          <div class="product-meta">
+            <span class="product-grade pg-a">● Grade A</span>
+            <span class="product-stock in">En stock</span>
+          </div>
+          <h3>MacBook Air M1 — 8 Go / 256 Go</h3>
+          <p class="product-sub">Silver. Puce Apple M1, autonomie 18h. Comme neuf, jamais utilisé en production.</p>
+          <div class="product-specs">
+            <span class="ps-tag">M1</span>
+            <span class="ps-tag">8 Go RAM</span>
+            <span class="ps-tag">256 Go SSD</span>
+            <span class="ps-tag">13,3"</span>
+          </div>
+          <div class="product-pricing">
+            <span class="product-price">71 400 CFP</span>
+            <span class="product-original">134 000 CFP</span>
+            <span class="product-saving">−47%</span>
+          </div>
+          <a href="Contact.html" class="product-cta">Nous contacter →</a>
+        </div>
+      </div>
+      <div class="product-card" data-cat="laptop">
+        <img class="product-img" src="" alt="Dell XPS 13"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-ph" style="display:none;">
+          <span class="ph-ico">💻</span>
+          <span class="ph-txt">Ajoute ta photo</span>
+        </div>
+        <div class="product-body">
+          <div class="product-meta">
+            <span class="product-grade pg-b">● Grade B</span>
+            <span class="product-stock low">2 en stock</span>
+          </div>
+          <h3>Dell XPS 13 — i7 / 16 Go / 512 Go</h3>
+          <p class="product-sub">Platine. Core i7-1165G7, écran Full HD 13,4". Très bon état général.</p>
+          <div class="product-specs">
+            <span class="ps-tag">i7 11e gen</span>
+            <span class="ps-tag">16 Go RAM</span>
+            <span class="ps-tag">512 Go SSD</span>
+            <span class="ps-tag">13,4"</span>
+          </div>
+          <div class="product-pricing">
+            <span class="product-price">59 500 CFP</span>
+            <span class="product-original">107 000 CFP</span>
+            <span class="product-saving">−44%</span>
+          </div>
+          <a href="Contact.html" class="product-cta">Nous contacter →</a>
+        </div>
+      </div>
+      <!-- ── PC FIXES ── -->
+      <div class="product-card" data-cat="desktop">
+        <img class="product-img" src="" alt="PC Bureau Gaming"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-ph" style="display:none;">
+          <span class="ph-ico">🖥️</span>
+          <span class="ph-txt">Ajoute ta photo</span>
+        </div>
+        <div class="product-body">
+          <div class="product-meta">
+            <span class="product-grade pg-a">● Grade A</span>
+            <span class="product-stock in">En stock</span>
+          </div>
+          <h3>PC Bureau — Ryzen 5 / RTX 3060 / 16 Go</h3>
+          <p class="product-sub">Config gaming reconditionnée. 16 Go DDR4, SSD 512 Go. Testé et validé.</p>
+          <div class="product-specs">
+            <span class="ps-tag">Ryzen 5 5600X</span>
+            <span class="ps-tag">RTX 3060</span>
+            <span class="ps-tag">16 Go DDR4</span>
+            <span class="ps-tag">512 Go SSD</span>
+          </div>
+          <div class="product-pricing">
+            <span class="product-price">47 600 CFP</span>
+            <span class="product-original">95 000 CFP</span>
+            <span class="product-saving">−50%</span>
+          </div>
+          <a href="Contact.html" class="product-cta">Nous contacter →</a>
+        </div>
+      </div>
+      <!-- ── AUDIO ── -->
+      <div class="product-card" data-cat="audio">
+        <img class="product-img" src="" alt="AirPods Pro"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-ph" style="display:none;">
+          <span class="ph-ico">🎧</span>
+          <span class="ph-txt">Ajoute ta photo</span>
+        </div>
+        <div class="product-body">
+          <div class="product-meta">
+            <span class="product-grade pg-b">● Grade B</span>
+            <span class="product-stock in">En stock</span>
+          </div>
+          <h3>AirPods Pro 2e génération</h3>
+          <p class="product-sub">Blanc. Réduction de bruit active, audio spatial. Boîtier MagSafe. Batt. 89 %.</p>
+          <div class="product-specs">
+            <span class="ps-tag">ANC</span>
+            <span class="ps-tag">MagSafe</span>
+            <span class="ps-tag">Batt. 89%</span>
+          </div>
+          <div class="product-pricing">
+            <span class="product-price">17 800 CFP</span>
+            <span class="product-original">33 000 CFP</span>
+            <span class="product-saving">−46%</span>
+          </div>
+          <a href="Contact.html" class="product-cta">Nous contacter →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GARANTIES ── -->
+<section class="garanties-wrap">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow blue">Nos engagements</p>
+        <h2 class="section-title">Achetez<br><span class="dim">en confiance.</span></h2>
+      </div>
+      <p class="section-sub">Chaque achat est protégé. On s'engage sur la qualité de chaque appareil vendu.</p>
+    </div>
+    <div class="garanties-grid">
+      <div class="garantie-card">
+        <span class="garantie-icon">🛡️</span>
+        <h3>Garantie 12 mois</h3>
+        <p>Chaque appareil est garanti 12 mois pièces et main d'œuvre. Panne ? On répare gratuitement.</p>
+        <span class="garantie-highlight">12 mois couverts</span>
+      </div>
+      <div class="garantie-card">
+        <span class="garantie-icon">🔁</span>
+        <h3>Retour 7 jours</h3>
+        <p>Pas satisfait dans les 7 jours suivant l'achat ? On reprend l'appareil et on vous rembourse.</p>
+        <span class="garantie-highlight">Remboursement total</span>
+      </div>
+      <div class="garantie-card">
+        <span class="garantie-icon">🔋</span>
+        <h3>Batterie certifiée</h3>
+        <p>On garantit un minimum de 85 % de capacité batterie sur tous les smartphones et tablettes.</p>
+        <span class="garantie-highlight">≥ 85 % garantis</span>
+      </div>
+      <div class="garantie-card">
+        <span class="garantie-icon">🗑️</span>
+        <h3>Données effacées</h3>
+        <p>Chaque appareil est réinitialisé en usine et certifié vierge avant mise en vente.</p>
+        <span class="garantie-highlight">Réinitialisation certifiée</span>
+      </div>
+      <div class="garantie-card">
+        <span class="garantie-icon">🌿</span>
+        <h3>Démarche écologique</h3>
+        <p>Chaque appareil reconditionné, c'est une tonne de CO₂ évitée et des ressources préservées.</p>
+        <span class="garantie-highlight">−70 % d'empreinte carbone</span>
+      </div>
+      <div class="garantie-card">
+        <span class="garantie-icon">💬</span>
+        <h3>SAV local</h3>
+        <p>Notre équipe est à Pirae. En cas de problème, passez directement en boutique — pas de hotline.</p>
+        <span class="garantie-highlight">Réponse sous 2h</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ── FAQ ── -->
+<section class="faq-wrap">
+  <div class="container">
+    <div class="faq-inner">
+      <p class="eyebrow green">FAQ</p>
+      <h2 class="section-title">Questions<br><span class="dim">fréquentes.</span></h2>
+      <div class="faq-list" style="margin-top:2.5rem;">
+        <div class="faq-item open">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>Quelle est la différence entre reconditionné et d'occasion ?</h4>
+            <span class="faq-chevron">▼</span>
+          </div>
+          <div class="faq-a">
+            <p>Un appareil d'occasion est vendu tel quel, sans contrôle ni garantie. Un appareil reconditionné par FixCenter est inspecté sur 27 points, nettoyé, réparé si nécessaire et garanti 12 mois. C'est une démarche professionnelle, pas une simple revente.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>Les appareils sont-ils déverrouillés tous opérateurs ?</h4>
+            <span class="faq-chevron">▼</span>
+          </div>
+          <div class="faq-a">
+            <p>Oui. Tous les smartphones vendus chez FixCenter sont déverrouillés tous opérateurs. Vous pouvez utiliser votre carte SIM OPT, Vini ou toute autre carte sans restriction.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>La garantie couvre quoi exactement ?</h4>
+            <span class="faq-chevron">▼</span>
+          </div>
+          <div class="faq-a">
+            <p>La garantie couvre tous les défauts de fonctionnement non liés à une casse ou un dommage volontaire. Batterie défaillante, écran qui ne répond plus, problème de connectivité — on répare gratuitement pendant 12 mois.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>Puis-je reprendre mon ancien appareil en échange ?</h4>
+            <span class="faq-chevron">▼</span>
+          </div>
+          <div class="faq-a">
+            <p>Oui, on pratique la reprise. Amenez votre ancien appareil en boutique pour une évaluation gratuite. Le montant de reprise est déduit du prix de l'appareil que vous achetez.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>Le stock affiché est-il à jour ?</h4>
+            <span class="faq-chevron">▼</span>
+          </div>
+          <div class="faq-a">
+            <p>On met à jour le catalogue régulièrement mais les stocks peuvent évoluer vite. Pour vérifier la disponibilité en temps réel ou être alerté d'une nouvelle arrivée, contactez-nous directement par WhatsApp ou e-mail.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <span class="foot-copy">© 2025 FixCenter — Tous droits réservés</span>
+    <div class="foot-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="rdv.html">Rendez-vous</a>
+    </div>
+  </div>
+</footer>
+<script>
+/* ── FILTRES ── */
+function filterProducts(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    const show = cat === 'tous' || card.dataset.cat === cat;
+    card.style.display = show ? 'flex' : 'none';
+  });
+}
+/* ── FAQ ── */
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('open');
+}
+/* ── NAV ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    document.getElementById('nav').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>

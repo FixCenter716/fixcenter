@@ -1,0 +1,299 @@
+/* ══════════════════════════════════════════════════════
+   PC Gaming.css — Styles spécifiques à la page PC Gaming
+   Requires: base.css chargé avant
+   ══════════════════════════════════════════════════════ */
+
+/* ── VARIABLES SUPPLÉMENTAIRES (PC Gaming uniquement) ── */
+:root {
+  --blue-md:  rgba(61,127,255,0.18);
+  --purple:   #a259ff;
+  --pink:     #ff4fa0;
+}
+
+/* ── MARQUEE (couleur accent différente) ── */
+.marquee-sep { color: var(--purple); }
+.marquee-track { animation-duration: 28s; }
+
+/* ── HERO PC GAMING ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 10rem 4% 5rem;
+  position: relative; overflow: hidden;
+}
+
+.hero-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 20%, transparent 100%);
+}
+
+.hero-glow {
+  position: absolute; top: -5%; left: 50%; transform: translateX(-50%);
+  width: 1000px; height: 700px; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 40%,
+    rgba(61,127,255,.08) 0%,
+    rgba(162,89,255,.06) 40%,
+    transparent 70%);
+}
+
+.hero-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+  max-width: 1160px; width: 100%; margin: 0 auto;
+}
+
+.hero-pill {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .4rem .95rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 50px; font-size: .78rem; color: var(--sub); margin-bottom: 2rem;
+}
+.hero-pill .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--purple); box-shadow: 0 0 8px var(--purple);
+  animation: blink 2.2s ease infinite;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 800; line-height: 1.0; letter-spacing: -2.5px; margin-bottom: 1.4rem;
+}
+.hero h1 .grad {
+  background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero h1 .dim { color: var(--muted); }
+
+.hero-desc { font-size: 1rem; color: var(--sub); line-height: 1.75; max-width: 440px; margin-bottom: 2.4rem; }
+.hero-actions { display: flex; gap: .9rem; flex-wrap: wrap; }
+
+/* ── PC TOWER (visuel animé) ── */
+.hero-visual {
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+
+.pc-tower {
+  width: 260px; height: 360px;
+  background: linear-gradient(160deg, #1a1a1a, #0d0d0d);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px; position: relative; overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0,0,0,.6);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
+}
+.pc-tower::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink), var(--blue));
+  background-size: 300%; animation: rgb 3s linear infinite;
+}
+@keyframes rgb { 0%{background-position:0%} 100%{background-position:300%} }
+
+.fan { width: 80px; height: 80px; position: relative; }
+.fan-ring {
+  width: 100%; height: 100%; border-radius: 50%;
+  border: 2px solid rgba(61,127,255,.2);
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+.fan-blade {
+  width: 60px; height: 60px; position: absolute;
+  animation: spin 2s linear infinite;
+}
+.fan-blade::before, .fan-blade::after {
+  content: ''; position: absolute;
+  width: 22px; height: 22px; border-radius: 50% 0;
+  background: rgba(61,127,255,.25); border: 1px solid rgba(61,127,255,.4);
+}
+.fan-blade::before { top: 0; left: 50%; transform: translateX(-50%); }
+.fan-blade::after  { bottom: 0; left: 50%; transform: translateX(-50%) rotate(180deg); }
+.fan-center {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--blue); box-shadow: 0 0 10px var(--blue); z-index: 1;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.pc-led {
+  position: absolute; right: 18px; top: 20px; bottom: 20px;
+  width: 4px; border-radius: 2px;
+  background: linear-gradient(180deg, var(--blue), var(--purple), var(--pink));
+  box-shadow: 0 0 12px var(--purple); animation: led-pulse 3s ease infinite;
+}
+@keyframes led-pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+.pc-halo {
+  position: absolute; width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(162,89,255,.12), transparent 70%);
+  pointer-events: none;
+}
+
+.stat-bubble {
+  position: absolute; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: .75rem 1.1rem; backdrop-filter: blur(10px);
+}
+.stat-bubble.top-left  { top: 10%; left: -10%; }
+.stat-bubble.bot-right { bottom: 10%; right: -10%; }
+.stat-bubble .sb-val {
+  font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--blue);
+}
+.stat-bubble .sb-label { font-size: .72rem; color: var(--muted); }
+
+/* ── SECTION TITLE avec gradient ── */
+.section-title .grad {
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+/* ── CONFIGS (cartes PC) ── */
+.configs-wrap { background: var(--bg); }
+.configs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+.config-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: border-color .3s, transform .3s; position: relative;
+}
+.config-card:hover { border-color: rgba(61,127,255,.35); transform: translateY(-5px); }
+.config-card.featured { border-color: rgba(162,89,255,.3); }
+.config-card.featured:hover { border-color: var(--purple); }
+
+.config-badge {
+  position: absolute; top: 1.2rem; right: 1.2rem;
+  padding: .3rem .8rem;
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  border-radius: 50px; font-family: 'Syne', sans-serif;
+  font-size: .68rem; font-weight: 700; color: #fff; letter-spacing: 1px;
+}
+
+.config-visual {
+  aspect-ratio: 16/9; background: var(--surface2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.config-visual::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink), var(--blue));
+  background-size: 300%; animation: rgb 3s linear infinite;
+}
+.config-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.config-visual .ph-wrap { display: flex; flex-direction: column; align-items: center; gap: .5rem; }
+.config-visual .ph-wrap .ph-icon { font-size: 3.5rem; opacity: .3; }
+.config-visual .ph-wrap .ph-label {
+  font-size: .72rem; color: var(--muted); text-transform: uppercase;
+  letter-spacing: 2px; font-family: 'Syne', sans-serif;
+}
+
+.config-body { padding: 1.8rem; flex: 1; display: flex; flex-direction: column; }
+.config-tier {
+  font-family: 'Syne', sans-serif; font-size: .68rem; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase; color: var(--blue); margin-bottom: .6rem;
+}
+.config-card.featured .config-tier { color: var(--purple); }
+.config-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: .5rem; }
+.config-card p { font-size: .87rem; color: var(--sub); line-height: 1.65; flex: 1; }
+
+/* Specs & prix */
+.config-specs {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: 10px;
+  overflow: hidden; margin: 1.4rem 0;
+}
+.cs-item { background: var(--bg); padding: .7rem .9rem; }
+.cs-label { font-size: .65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: .2rem; }
+.cs-val { font-family: 'Syne', sans-serif; font-size: .82rem; font-weight: 700; }
+
+.config-price { display: flex; align-items: baseline; gap: .5rem; margin-bottom: 1.2rem; }
+.price-val { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--text); }
+.price-unit { font-size: .82rem; color: var(--sub); }
+
+.config-cta {
+  display: block; text-align: center; padding: .8rem;
+  background: var(--blue-lo); border: 1px solid var(--blue-md); border-radius: 9px;
+  color: var(--blue); font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: .88rem; text-decoration: none; transition: background .3s, box-shadow .3s;
+}
+.config-cta:hover { background: var(--blue); color: #fff; box-shadow: 0 0 20px rgba(61,127,255,.4); }
+.config-card.featured .config-cta {
+  background: rgba(162,89,255,.1); border-color: rgba(162,89,255,.3); color: var(--purple);
+}
+.config-card.featured .config-cta:hover {
+  background: var(--purple); color: #fff; box-shadow: 0 0 20px rgba(162,89,255,.4);
+}
+
+/* Carte custom (sur mesure) */
+.config-custom {
+  grid-column: 1 / -1; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; padding: 2.5rem 3rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 3rem;
+  transition: border-color .3s; position: relative; overflow: hidden;
+}
+.config-custom:hover { border-color: rgba(61,127,255,.25); }
+.config-custom::before {
+  content: ''; position: absolute; right: -100px; top: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(61,127,255,.06), transparent 70%);
+  pointer-events: none;
+}
+.custom-text h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: .6rem; }
+.custom-text p { font-size: .95rem; color: var(--sub); line-height: 1.7; max-width: 500px; }
+.custom-actions { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+
+/* ── PROCESSUS ── */
+.process-wrap {
+  background: var(--surface);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.process-steps {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 0; position: relative;
+}
+.process-steps::before {
+  content: ''; position: absolute; top: 32px; left: 10%; right: 10%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  z-index: 0;
+}
+.p-step { text-align: center; position: relative; z-index: 1; padding: 0 1rem; }
+.p-num {
+  width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 1.2rem;
+  background: var(--surface2); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800;
+  color: var(--muted); transition: all .3s;
+}
+.p-step:hover .p-num {
+  border-color: var(--blue); color: var(--blue);
+  background: var(--blue-lo); box-shadow: 0 0 20px var(--blue-lo);
+}
+.p-step h4 { font-size: .95rem; font-weight: 700; margin-bottom: .4rem; }
+.p-step p  { font-size: .82rem; color: var(--sub); line-height: 1.6; }
+
+/* ── RESPONSIVE PC GAMING ── */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+  .hero-desc { margin: 0 auto 2.4rem; }
+  .hero-actions { justify-content: center; }
+  .hero-visual { order: -1; }
+  .stat-bubble.top-left  { top: -5%; left: 5%; }
+  .stat-bubble.bot-right { bottom: -5%; right: 5%; }
+  .configs-grid { grid-template-columns: 1fr 1fr; }
+  .process-steps { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .process-steps::before { display: none; }
+}
+
+@media (max-width: 768px) {
+  .configs-grid { grid-template-columns: 1fr; }
+  .config-custom { flex-direction: column; text-align: center; }
+  .custom-actions { justify-content: center; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .process-steps { grid-template-columns: 1fr; }
+  .cta-btns { flex-direction: column; }
+}
