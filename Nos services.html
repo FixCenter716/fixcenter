@@ -634,7 +634,7 @@ async function submitForm() {
 
   // 1. Paiement Stripe (si caution > 0)
   if (selectedService.priceXPF > 0) {
-    const cautionAmount = Math.max(1000, Math.round(selectedService.priceXPF * 0.2));
+    const cautionAmount = Math.max(2500, Math.round(selectedService.priceXPF * 0.2));
     const paymentOk = await processStripePayment(cautionAmount);
     if (!paymentOk) {
       btn.textContent = 'Confirmer le rendez-vous →';
