@@ -366,7 +366,7 @@ function selectService(el, name, cat, price, priceXPF) {
   const stripeBlock = document.getElementById('stripeBlock');
   if (priceXPF > 0) {
     stripeBlock.style.display = 'block';
-    const cautionAmount = Math.max(1000, Math.round(priceXPF * 0.2));
+    const cautionAmount = Math.max(2500, Math.round(priceXPF * 0.2));
     document.getElementById('caution-amount').textContent =
       'Caution : ' + cautionAmount.toLocaleString('fr-FR') + ' XPF';
     initStripe(cautionAmount);
@@ -668,7 +668,7 @@ async function submitForm() {
 
   // 3. Confirmation visuelle
   const cautionLine = selectedService.priceXPF > 0
-    ? `<div class="conf-row"><span>Caution réglée</span><span>${Math.max(1000, Math.round(selectedService.priceXPF * 0.2)).toLocaleString('fr-FR')} XPF ✓</span></div>`
+    ? `<div class="conf-row"><span>Caution réglée</span><span>${Math.max(2500, Math.round(selectedService.priceXPF * 0.2)).toLocaleString('fr-FR')} XPF ✓</span></div>`
     : '';
 
   document.getElementById('confSummary').innerHTML = `
