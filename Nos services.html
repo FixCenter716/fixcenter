@@ -559,7 +559,7 @@ function sendConfirmationEmail(data) {
   const promises = [toFixCenter];
   if (data.email) {
     const toClient = emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      to_email:      data.email,
+      user_email:      data.email,
       nom:           data.fname + ' ' + data.lname,
       telephone:     data.phone,
       email_client:  data.email,
